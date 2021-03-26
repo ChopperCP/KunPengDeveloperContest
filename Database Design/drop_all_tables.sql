@@ -1,0 +1,3 @@
+DROP TABLE user;
+DROP TABLE port;
+DROP TABLE record;
