@@ -1,0 +1,5 @@
+<!--pages/index/index.wxml-->
+<view class='button-wrapper'>
+    <button bindtap='tapHandler'>查看进出记录</button>
+</view>
+<canvas class='canvas' canvas-id='canvas' bindlongtap='save'></canvas>
