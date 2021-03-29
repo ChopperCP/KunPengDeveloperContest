@@ -1,5 +1,5 @@
 CREATE TABLE `user`(
-	wechat_id VARCHAR(30) PRIMARY KEY,
+	wechat_id VARCHAR(40) PRIMARY KEY,
     privilege VARCHAR(10),
     user_QR_str VARCHAR(100),
     phone_number VARCHAR(11),
@@ -17,7 +17,7 @@ CREATE TABLE `port`(
 
 CREATE TABLE `record`(
 	record_id INT PRIMARY KEY AUTO_INCREMENT,
-    wechat_id VARCHAR(30),
+    wechat_id VARCHAR(40),
     port_id INT,
     FOREIGN KEY (wechat_id) REFERENCES user(wechat_id)
      on delete cascade on update cascade, 
