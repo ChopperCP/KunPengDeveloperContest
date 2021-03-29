@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/main/main"
+    "pages/main/main",
+    "pages/show_records"
   ],
   "window": {
     "backgroundTextStyle": "light",

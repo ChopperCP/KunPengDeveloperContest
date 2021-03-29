@@ -1,10 +1,13 @@
 <!--pages/index/index.wxml-->
-<view class='button-wrapper'>
-    <button bindtap='tapHandler'>查看进出记录</button>
-</view>
+<block wx:if="{{isLogin == true}}">
+    <view class='button-wrapper'>
+        <button bindtap='show_self_records'>查看进出记录</button>
+    </view>
+</block>
 <canvas class='canvas' canvas-id='canvas' bindlongtap='save'></canvas>
 <block wx:if="{{userIdentity == 'security' || userIdentity == 'admin'}}">
     <button
-        style="position: relative; left: 0rpx; top: 32rpx; width: 440rpx; height: 80rpx; display: block; box-sizing: border-box">扫码查看他人出入记录
+        style="position: relative; left: 0rpx; top: 32rpx; width: 440rpx; height: 80rpx; display: block; box-sizing: border-box"
+        bindtap='qrscan_get_records'>扫码查看他人出入记录
     </button>
 </block>
