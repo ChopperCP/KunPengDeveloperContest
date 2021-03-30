@@ -112,29 +112,22 @@ Page({
         // 扫码查看他人的出入记录
         let qrText = '';
         qrText = wx.scanCode({
-            onlyFromCamera: true,
+            onlyFromCamera: false,
         });
         if (qrText != '') {
             wx.request({
-                url: 'https://fxlkt.com/huawei/user/queryUserBywechatid',
+                url: 'https://fxlkt.com/huawei/user/queryUserByQRstr',
                 data: {
                     user_QR_Str: qrText,
                 },
-                success: (backstage_res) => {
+                success: (res) => {
                     // 取得用户身份
                     let data = backstage_res.data;
                     console.log(data);
                     if (data != null) {
-                        console.log(data);
-                        this.setData(
-                            {
-                                userIdentity: data.privilege,
-                                qrText: data.user_QR_str,
-                                isLogin: true,
-                                wechat_id: res.code,
-                            }
-                        );
-                        console.log(this.data);
+                        wx.redirectTo({
+                            url: '/pages/show_records/show_records?record=' + JSON.stringify(res.data),
+                        })
                     }
                     else {
                         wx.showToast({
