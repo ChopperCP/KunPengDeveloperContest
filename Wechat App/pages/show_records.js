@@ -1,4 +1,6 @@
 // pages/show_records.js
+let app = getApp();
+
 Page({
 
     /**
@@ -12,7 +14,12 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        this.setData(
+            {
+                record: JSON.parse(options.record)[0],
+            }
+        )
+        console.log(this.data.record);
     },
 
     /**

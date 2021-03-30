@@ -4,7 +4,7 @@
         "ignore": []
     },
     "setting": {
-        "urlCheck": true,
+        "urlCheck": false,
         "es6": true,
         "enhance": false,
         "postcss": true,
@@ -23,7 +23,7 @@
         "compileHotReLoad": false,
         "useMultiFrameRuntime": true,
         "useApiHook": true,
-        "useApiHostProcess": true,
+        "useApiHostProcess": false,
         "babelSetting": {
             "ignore": [],
             "disablePlugins": [],
@@ -41,7 +41,7 @@
     },
     "compileType": "miniprogram",
     "libVersion": "2.16.0",
-    "appid": "wx880a0fab1d63f094",
+    "appid": "wx8bbd87c53dfd3b71",
     "projectname": "kunpeng",
     "debugOptions": {
         "hidedInDevtools": []
