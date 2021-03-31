@@ -18,6 +18,10 @@ http://124.71.60.210:8080/user/updateUser?wechat_id=1112&privilege=33333&user_QR
 
 http://124.71.60.210:8080/user/addUser?wechat_id=1112&privilege=33333&user_QR_str=2323232&phone_number=2&real_name=yes
 
+按id查询
+
+http://124.71.60.210:8080/user/queryUserBywechatid?wechat_id=1112
+
 Record
 
 查询所有记录
@@ -35,3 +39,7 @@ http://124.71.60.210:8080/record/updateRecord?record_id=x&wechat_id=x&port_id=x&
 添加纪录
 
 http://124.71.60.210:8080/record/updateRecord?wechat_id=x&port_id=x&status=x
+
+按二维码查询记录
+
+http://124.71.60.210:8080/record/queryRecordByuser_QR_str?user_QR_str=ChopperCP%20QR%20STR
