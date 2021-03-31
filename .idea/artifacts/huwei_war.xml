@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="huwei:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/huwei_war</output-path>
+    <root id="archive" name="huwei_war.war">
+      <element id="artifact" artifact-name="huwei:war exploded" />
+    </root>
+  </artifact>
+</component>

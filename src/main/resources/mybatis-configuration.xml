@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <typeAliases>
+        <typeAlias type="com.huawei.bean.Book" alias="Book"/>
+        <typeAlias type="com.huawei.bean.User" alias="User"/>
+        <typeAlias type="com.huawei.bean.Record" alias="Record"/>
+        <typeAlias type="com.huawei.bean.Port" alias="Port"/>
+    </typeAliases>
+
+    <mappers>
+        <mapper resource="com/huawei/dao/BookMapper.xml"/>
+        <mapper resource="com/huawei/dao/UserMapper.xml"/>
+        <mapper resource="com/huawei/dao/PortMapper.xml"/>
+        <mapper resource="com/huawei/dao/RecordMapper.xml"/>
+    </mappers>
+</configuration>

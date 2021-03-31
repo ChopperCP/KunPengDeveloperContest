@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.huawei.dao.PortMapper">
+    <!--增加一个Book-->
+    <insert id="addPort" parameterType="Port">
+        insert into kunpeng.port(longitude, latitude, port_QR_str_in, port_QR_str_out, description)
+        values (#{longitude}, #{latitude}, #{port_QR_str_in}, #{port_QR_str_out}, #{description})
+    </insert>
+
+    <update id="updatePort" parameterType="Port">
+        update kunpeng.port
+        set longitude       = #{longitude},
+            latitude        = #{latitude},
+            port_QR_str_in  = #{port_QR_str_in},
+            port_QR_str_out = #{port_QR_str_out},
+            description     = #{description}
+        where port_id = #{port_id}
+    </update>
+
+    <select id="queryPortidByQRstr" resultType="int">
+        select port_id
+        from kunpeng.port
+        where port_QR_str_in = #{port_QR_str}
+        or port_QR_str_out = #{port_QR_str}
+    </select>
+    <select id="queryPortlast" resultType="String">
+        select status from kunpeng.record  where wechat_id=#{wechat_id} order by timestamp desc LIMIT 1
+    </select>
+
+</mapper>
