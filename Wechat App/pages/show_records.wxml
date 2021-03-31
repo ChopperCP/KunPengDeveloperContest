@@ -1,6 +1,0 @@
-<!--pages/show_records.wxml-->
-<text>pages/show_records.wxml</text>
-<view>
-    {{record.record_id}}
-    {{record.wechat_id}}
-</view>

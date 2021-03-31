@@ -1,0 +1,34 @@
+<!--pages/register/register.wxml-->
+<view class="container" style="width: 750rpx; height: 1154rpx; display: flex; box-sizing: border-box; left: NaNrpx; top: NaNrpx">
+    <view class="page-body">
+        <form catchsubmit="formSubmit" catchreset="formReset">
+            
+            <view class="page-section">
+                <view class="page-section-title">真实姓名</view>
+                <view class="weui-cells weui-cells_after-title">
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__bd" style="margin: 30rpx 0">
+                            <input class="weui-input" name="real_name" placeholder="" />
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="page-section">
+                <view class="page-section-title"> 手机号</view>
+                <view class="weui-cells weui-cells_after-title">
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__bd" style="margin: 30rpx 0">
+                            <input class="weui-input" name="phone_number" placeholder="" />
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+            <view class="btn-area">
+                <button style="margin: 30rpx 0" type="primary" formType="submit">Submit</button>
+                <button style="margin: 30rpx 0" formType="reset">Reset</button>
+            </view>
+        </form>
+    </view>
+
+</view>
