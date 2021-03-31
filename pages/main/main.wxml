@@ -15,4 +15,5 @@
     </button>
 </block>
 <button type="primary"
-    style="position: relative; top: 57rpx; width: 440rpx; height: 80rpx; display: block; box-sizing: border-box">扫码进出园区</button>
+    style="position: relative; top: 57rpx; width: 440rpx; height: 80rpx; display: block; box-sizing: border-box"
+    bindtap="qrscan_campus">扫码进出园区</button>

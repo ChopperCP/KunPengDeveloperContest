@@ -182,4 +182,51 @@ Page({
             }
         });
     },
+    qrscan_campus: function () {
+        // 扫码出入
+        wx.scanCode({
+            onlyFromCamera: true,
+            success: (res) => {
+                console.log(res);
+                wx.request({
+                    url: 'https://fxlkt.com/huawei/record/addRecordByQR_str',
+                    data: {
+                        port_QR_str: res.result,
+                        wechat_id: this.data.wechat_id,
+                        status: "normal",
+                    },
+                    success: (backstage_res) => {
+                        // 取得用户身份
+                        let data = backstage_res.data;
+                        console.log(data);
+                        if (data.status == 'normal') {
+                            // 成功
+                            wx.redirectTo({
+                                url: '/pages/inout_status/success',
+                            })
+                        }
+                        else {
+                            // 只出不入，异常
+                            wx.redirectTo({
+                                url: '/pages/inout_status/fail',
+                            })
+                        }
+                    },
+                    fail: (backstage_res) => {
+                        wx.showToast({
+                            title: '远端服务器出错',
+                            icon: 'error',
+                        })
+                    },
+                });
+            },
+            fail: (res) => {
+                wx.showToast({
+                    title: '扫码失败',
+                    icon: 'error',
+                })
+            }
+        });
+
+    },
 })

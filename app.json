@@ -2,7 +2,9 @@
   "pages": [
     "pages/main/main",
     "pages/show_records/show_records",
-    "pages/register/register"
+    "pages/register/register",
+    "pages/inout_status/success",
+    "pages/inout_status/fail"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,3 @@
+<!--pages/inout_status/fail.wxml-->
+<icon class="icon" type="warn" size="300" style="position: relative; left: 0rpx; top: 170rpx"></icon>
+<text class="text" style="position: relative; left: 0rpx; top: 170rpx">出入异常，请联系管理员处理</text>
