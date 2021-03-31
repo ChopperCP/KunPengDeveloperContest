@@ -23,7 +23,7 @@
         <input type="hidden" name="bookID" value="${book.bookID}" required><br><br><br>
         书籍名称：<input type="text" name="bookName" value="${book.bookName}" required><br><br><br>
         书籍数量：<input type="text" name="bookCounts" value="${book.bookCounts}" required><br><br><br>
-        书籍详情：<input type="text" name="detail"  value="${book.detail}"required><br><br><br>
+        书籍详情：<input type="text" name="detail" value="${book.detail}" required><br><br><br>
         <input type="submit" value="修改">
     </form>
 </div>

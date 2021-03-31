@@ -14,4 +14,5 @@ public class Port {
     String port_QR_str_in;
     String port_QR_str_out;
     String description;
+
 }

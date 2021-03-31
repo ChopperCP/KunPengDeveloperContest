@@ -7,28 +7,45 @@
 <mapper namespace="com.huawei.dao.RecordMapper">
     <!--增加一个Book-->
     <insert id="addRecord" parameterType="Record">
-        insert into kunpeng.record(wechat_id, port_id,  status)
-        values (#{wechat_id}, #{port_id},  #{status})
+        insert into kunpeng.record(wechat_id, port_id, status)
+        values (#{wechat_id}, #{port_id}, #{status})
     </insert>
 
     <update id="updateRecord" parameterType="Record">
         update kunpeng.record
-        set wechat_id=#{wechat_id},
-            port_id=#{port_id},
-            status=#{status}
+        set timestamp = #{timestamp},
+            status    = #{status}
         where record_id = #{record_id}
     </update>
     <select id="queryAllRecord" resultType="Record">
-        select * from kunpeng.record
+        select *
+        from kunpeng.record
     </select>
     <select id="queryRecordBywechatid" resultType="Record">
-        select * from kunpeng.record where wechat_id = #{wechat_id}
+        select *
+        from kunpeng.record
+        where wechat_id = #{wechat_id}
     </select>
 
     <select id="queryRecordByuser_QR_str" resultType="Record">
-        select * from kunpeng.record where wechat_id = (select wechat_id from kunpeng.user where user_QR_str=#{user_QR_str})
+        select *
+        from kunpeng.record
+        where wechat_id = (select wechat_id from kunpeng.user where user_QR_str = #{user_QR_str})
     </select>
 
+
+    <select id="queryFullRecord" resultType="Record">
+        select *
+        from record r
+                 left join (select wechat_id wechat_id2, real_name from user) u on wechat_id = wechat_id2
+                 left join (select port_id port_id2, description from port) p on port_id = port_id2
+    </select>
+    <select id="queryoneFullRecord" resultType="Record">
+        select *
+        from (select * from record where record_id = #{record_id}) r
+                 left join (select wechat_id wechat_id2, real_name from user) u on wechat_id = wechat_id2
+                 left join (select port_id port_id2, description from port) p on port_id = port_id2
+    </select>
 
 
 </mapper>

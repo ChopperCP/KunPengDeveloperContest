@@ -41,4 +41,14 @@ public class RecordServiceImpl implements RecordService {
     public List<Record> queryRecordByuser_QR_str(String user_QR_str) {
         return recordMapper.queryRecordByuser_QR_str(user_QR_str);
     }
+
+    @Override
+    public List<Record> queryFullRecord() {
+        return recordMapper.queryFullRecord();
+    }
+
+    @Override
+    public Record queryoneFullRecord(int record_id) {
+        return recordMapper.queryoneFullRecord(record_id);
+    }
 }
