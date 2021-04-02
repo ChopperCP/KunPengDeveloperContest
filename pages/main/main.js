@@ -28,7 +28,7 @@ Page({
                                 console.log(this.data.wechat_id);
                                 // 查询用户的身份和二维码字符串
                                 wx.request({
-                                    url: 'https://fxlkt.com/huawei/user/queryUserBywechatid',
+                                    url: 'https://fxlkt.com/user/queryUserBywechatid',
                                     data: {
                                         wechat_id: this.data.wechat_id
                                         // DEBUG
@@ -117,7 +117,7 @@ Page({
     show_self_records: function () {
         // 查看自己的出入记录
         wx.request({
-            url: 'https://fxlkt.com/huawei/record/queryRecordBywechatid',
+            url: 'https://fxlkt.com/record/queryRecordBywechatid',
             data: {
                 wechat_id: this.data.wechat_id,
                 // DEBUG
@@ -146,7 +146,7 @@ Page({
             success: (res) => {
                 console.log(res);
                 wx.request({
-                    url: 'https://fxlkt.com/huawei/record/queryRecordByuser_QR_str',
+                    url: 'https://fxlkt.com/record/queryRecordByuser_QR_str',
                     data: {
                         user_QR_str: res.result,
                     },
@@ -189,7 +189,7 @@ Page({
             success: (res) => {
                 console.log(res);
                 wx.request({
-                    url: 'https://fxlkt.com/huawei/record/addRecordByQR_str',
+                    url: 'https://fxlkt.com/record/addRecordByQR_str',
                     data: {
                         port_QR_str: res.result,
                         wechat_id: this.data.wechat_id,

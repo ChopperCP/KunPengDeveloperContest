@@ -5,7 +5,7 @@
         "ignore": []
     },
     "setting": {
-        "urlCheck": false,
+        "urlCheck": true,
         "es6": true,
         "enhance": false,
         "postcss": true,
@@ -42,7 +42,7 @@
     },
     "compileType": "miniprogram",
     "libVersion": "2.16.0",
-    "appid": "wx8bbd87c53dfd3b71",
+    "appid": "wx2f5403b680042614",
     "projectname": "kunpeng",
     "debugOptions": {
         "hidedInDevtools": []

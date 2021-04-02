@@ -7,7 +7,7 @@ App({
     wx.setStorageSync('logs', logs)
 
     wx.cloud.init({
-      env: 'cloud1-7g5gmqd949b5f778',
+      env: 'kunpengsisse2-9gyt5rrjdef36be3',
       traceUser: true,
     });
   },
