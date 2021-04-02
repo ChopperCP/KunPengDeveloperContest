@@ -196,10 +196,9 @@ Page({
                         status: "normal",
                     },
                     success: (backstage_res) => {
-                        // 取得用户身份
                         let data = backstage_res.data;
                         console.log(data);
-                        if (data.status == 'normal') {
+                        if (data.status.slice(-6) == 'NORMAL') {
                             // 成功
                             wx.redirectTo({
                                 url: '/pages/inout_status/success',
