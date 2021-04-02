@@ -1,1 +1,42 @@
 /* pages/show_records.wxss */
+/*表格  */
+.tb-box {
+    border-bottom: 2rpx solid #f0f0f0;
+    border-left: 2rpx solid #f0f0f0;
+    border-right: 2rpx solid #f0f0f0;
+}
+
+/* 伪元素 */
+.tb-box::after {
+    content: '';
+    width: 2rpx;
+    height: 100%;
+    background: #f0f0f0;
+    position: absolute;
+    left: 30%;
+    top: 0;
+}
+
+.tb {
+    border-top: 2rpx solid #f0f0f0;
+    position: relative;
+}
+
+.tL,
+.tR {
+    font-size: 25rpx;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 17rpx 30rpx;
+    vertical-align: top;
+}
+
+.tL {
+    width: 30%;
+    color: #262626;
+}
+
+.tR {
+    width: 69%;
+    color: #262626;
+}

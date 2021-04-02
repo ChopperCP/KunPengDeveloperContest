@@ -16,7 +16,7 @@ Page({
     onLoad: function (options) {
         this.setData(
             {
-                record: JSON.parse(options.record)[0],
+                record: JSON.parse(options.record),
             }
         )
         console.log(this.data.record);

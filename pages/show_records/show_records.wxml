@@ -1,6 +1,13 @@
-<!--pages/show_records.wxml-->
-<text>pages/show_records.wxml</text>
-<view>
-    {{record.record_id}}
-    {{record.wechat_id}}
+<view class='param-text'>您的出入记录</view>
+<!-- 商品参数 -->
+<view wx:for="{{record}}" class='param'>
+    <!-- 参数标题 -->
+    <!-- 参数列表 -->
+    <view class='param-table'>
+        <view class='tb'>
+            <view class='tL'>{{"id: "+item.record_id}}</view>
+            <view class='tR'>{{"出入口: "+item.description}}</view>
+            <view class='tR'>{{"状态: "+item.status}}</view>
+        </view>
+    </view>
 </view>
