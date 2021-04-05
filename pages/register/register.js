@@ -77,7 +77,7 @@ Page({
             data: {
                 wechat_id: this.data.wechat_id,
                 privilege: 'employee',
-                user_QR_str: util.getRandomStr(100),
+                user_QR_str: util.getRandomStr(),
                 phone_number: e.detail.value.phone_number,
                 real_name: e.detail.value.real_name,
             },
