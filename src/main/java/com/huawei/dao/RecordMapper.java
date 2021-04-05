@@ -22,7 +22,13 @@ public interface RecordMapper {
 
     List<Record> queryRecordByuser_QR_str(String user_QR_str);
 
+    List<Record> queryFullRecordByuser_QR_str(String user_QR_str);
+
     int addRecordByQR_str(Map<String, Object> map);
 
     String queryRecordlast(String wechat_id);
+
+    List<Record> queryFullRecordBywechatid(String wechat_id);
+
+
 }

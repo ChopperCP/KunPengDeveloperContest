@@ -3,11 +3,12 @@ package com.huawei.controller;
 import com.huawei.Utils.PropertiesConfig;
 import com.huawei.bean.Port;
 import com.huawei.bean.Record;
+import com.huawei.bean.User;
 import com.huawei.service.PortService;
 import com.huawei.service.RecordService;
+import com.huawei.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
-import java.util.Properties;
 import java.util.UUID;
 
 @Controller
@@ -29,6 +29,10 @@ public class AdminController {
     @Qualifier("PortServiceImpl")
     private PortService portService;
 
+    @Autowired
+    @Qualifier("UserServiceImpl")
+    private UserService userService;
+
 
     @RequestMapping("/allRecord")
     public String adminindex(Model model) {
@@ -37,7 +41,7 @@ public class AdminController {
         if ("Admin@9000".equals(password_true)) return "updatePassword";
         List<Record> records = recordService.queryFullRecord();
         model.addAttribute("allrecord", records);
-        return "index";
+        return "allRecord";
     }
 
     @RequestMapping("/toupdateRecord")
@@ -76,11 +80,11 @@ public class AdminController {
 
     @RequestMapping("/updatePassword")
     public String updatePassword(String password, HttpSession session) {
-        if (password == null) return "redirect:/index.jsp";
+        if (password == null) return "redirect:/admin/allRecord";
         String rootPath = AdminController.class.getClassLoader().getResource("/admin.properties").getPath();
         PropertiesConfig.writeData(rootPath, "password", password);
         session.removeAttribute("username");
-        return "redirect:/index.jsp";
+        return "redirect:/admin/allRecord";
     }
 
     @RequestMapping("/allPort")
@@ -136,5 +140,33 @@ public class AdminController {
         System.out.println(s);
         return s;
     }
+
+    @RequestMapping("/allUser")
+    public String allUser(Model model) {
+        List<User> users = userService.queryalluser();
+        model.addAttribute("list", users);
+        return "allUser";
+    }
+
+    @RequestMapping("/queryuserByname")
+    public String queryuserByname(Model model, String real_name) {
+        List<User> users = userService.queryuserByname(real_name);
+        model.addAttribute("list", users);
+        return "allUser";
+    }
+
+    @RequestMapping("/toupdateUser")
+    public String toupdateuser(String wechat_id, Model model) {
+        User user = userService.queryUserBywechatid(wechat_id);
+        model.addAttribute("user", user);
+        return "updateUser";
+    }
+
+    @RequestMapping("/updateUser")
+    public String updateuser(User user) {
+        userService.updateUser(user);
+        return "allUser";
+    }
+
 
 }

@@ -8,9 +8,6 @@
     <context:component-scan base-package="com.huawei.service"/>
 
     <!--BookServiceImpl注入到IOC容器中-->
-    <bean id="BookServiceImpl" class="com.huawei.service.BookServiceImpl">
-        <property name="bookMapper" ref="bookMapper"/>
-    </bean>
     <bean id="UserServiceImpl" class="com.huawei.service.UserServiceImpl">
         <property name="userMapper" ref="userMapper"/>
     </bean>

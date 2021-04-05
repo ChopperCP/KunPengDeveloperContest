@@ -55,4 +55,12 @@ public class RecordServiceImpl implements RecordService {
     public String queryRecordlast(String wechat_id) {
         return recordMapper.queryRecordlast(wechat_id);
     }
+
+    public List<Record> queryFullRecordBywechatid(String wechat_id) {
+        return recordMapper.queryFullRecordBywechatid(wechat_id);
+    }
+
+    public List<Record> queryFullRecordByuser_QR_str(String user_QR_str) {
+        return recordMapper.queryFullRecordByuser_QR_str(user_QR_str);
+    }
 }

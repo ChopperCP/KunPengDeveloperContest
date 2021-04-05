@@ -42,6 +42,14 @@ public class RecordController {
         return mapper.writeValueAsString(records);
     }
 
+    @RequestMapping("/queryFullRecordBywechatid")
+    String queryFullRecordBywechatid(String wechat_id) throws JsonProcessingException {
+        List<Record> records = recordService.queryFullRecordBywechatid(wechat_id);
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.writeValueAsString(records);
+    }
+
+
     @RequestMapping("/updateRecord")
     String updateRecord(Record record) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
@@ -57,6 +65,13 @@ public class RecordController {
     @RequestMapping("/queryRecordByuser_QR_str")
     String queryRecordByuser_QR_str(String user_QR_str) throws JsonProcessingException {
         List<Record> records = recordService.queryRecordByuser_QR_str(user_QR_str);
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.writeValueAsString(records);
+    }
+
+    @RequestMapping("/queryFullRecordByuser_QR_str")
+    String queryFullRecordByuser_QR_str(String user_QR_str) throws JsonProcessingException {
+        List<Record> records = recordService.queryFullRecordByuser_QR_str(user_QR_str);
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString(records);
     }

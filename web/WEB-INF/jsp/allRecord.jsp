@@ -11,6 +11,7 @@
     <div class="page-header">
       <a href="/admin/toupdatePassword">修改密码</a><br/>
       <a href="/admin/allPort">查看所有地点</a>
+      <a href="/admin/allUser">查看所有用户</a>
       <h1>
         <small>所有进出记录</small>
       </h1>

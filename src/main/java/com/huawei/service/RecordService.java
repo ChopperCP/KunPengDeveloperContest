@@ -23,4 +23,8 @@ public interface RecordService {
     List<Record> queryRecordByuser_QR_str(String user_QR_str);
 
     String queryRecordlast(String wechat_id);
+
+    List<Record> queryFullRecordBywechatid(String wechat_id);
+
+    List<Record> queryFullRecordByuser_QR_str(String user_QR_str);
 }

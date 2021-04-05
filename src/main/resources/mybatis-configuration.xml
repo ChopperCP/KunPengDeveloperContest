@@ -7,14 +7,12 @@
         <setting name="logImpl" value="STDOUT_LOGGING"/>
     </settings>
     <typeAliases>
-        <typeAlias type="com.huawei.bean.Book" alias="Book"/>
         <typeAlias type="com.huawei.bean.User" alias="User"/>
         <typeAlias type="com.huawei.bean.Record" alias="Record"/>
         <typeAlias type="com.huawei.bean.Port" alias="Port"/>
     </typeAliases>
 
     <mappers>
-        <mapper resource="com/huawei/dao/BookMapper.xml"/>
         <mapper resource="com/huawei/dao/UserMapper.xml"/>
         <mapper resource="com/huawei/dao/PortMapper.xml"/>
         <mapper resource="com/huawei/dao/RecordMapper.xml"/>

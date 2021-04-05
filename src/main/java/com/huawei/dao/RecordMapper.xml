@@ -33,6 +33,13 @@
         where wechat_id = (select wechat_id from kunpeng.user where user_QR_str = #{user_QR_str})
     </select>
 
+    <select id="queryFullRecordByuser_QR_str" resultType="Record">
+        select *
+        from (select wechat_id wechat_id2, real_name from user where user_QR_str = #{user_QR_str}) u
+                 left join (select * from record) r on wechat_id = wechat_id2
+                 left join (select port_id port_id2, description from port) p on port_id = port_id2
+    </select>
+
 
     <select id="queryFullRecord" resultType="Record">
         select *
@@ -43,6 +50,14 @@
     <select id="queryoneFullRecord" resultType="Record">
         select *
         from (select * from record where record_id = #{record_id}) r
+                 left join (select wechat_id wechat_id2, real_name from user) u on wechat_id = wechat_id2
+                 left join (select port_id port_id2, description from port) p on port_id = port_id2
+    </select>
+
+
+    <select id="queryFullRecordBywechatid" resultType="Record">
+        select *
+        from (select * from record where wechat_id = #{wechat_id}) r
                  left join (select wechat_id wechat_id2, real_name from user) u on wechat_id = wechat_id2
                  left join (select port_id port_id2, description from port) p on port_id = port_id2
     </select>

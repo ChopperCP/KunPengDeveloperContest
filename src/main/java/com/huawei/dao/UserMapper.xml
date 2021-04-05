@@ -21,7 +21,18 @@
         where wechat_id = #{wechat_id}
     </update>
     <select id="queryUserBywechatid" resultType="User">
-        select * from kunpeng.user where wechat_id = #{wechat_id}
+        select *
+        from kunpeng.user
+        where wechat_id = #{wechat_id}
+    </select>
+    <select id="queryalluser" resultType="User">
+        select *
+        from user
+    </select>
+    <select id="queryuserByname" resultType="User">
+        select *
+        from user
+        where real_name = #{real_name}
     </select>
 
 </mapper>
