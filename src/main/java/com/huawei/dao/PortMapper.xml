@@ -25,10 +25,23 @@
         select port_id
         from kunpeng.port
         where port_QR_str_in = #{port_QR_str}
-        or port_QR_str_out = #{port_QR_str}
+           or port_QR_str_out = #{port_QR_str}
     </select>
-    <select id="queryPortlast" resultType="String">
-        select status from kunpeng.record  where wechat_id=#{wechat_id} order by timestamp desc LIMIT 1
+
+    <select id="quertAllPort" resultType="Port">
+        select *
+        from port
     </select>
+
+    <select id="queryPortById" resultType="Port">
+        select *
+        from port
+        where port_id = #{port_id}
+    </select>
+    <delete id="deletePort">
+        delete
+        from port
+        where port_id = #{port_id}
+    </delete>
 
 </mapper>

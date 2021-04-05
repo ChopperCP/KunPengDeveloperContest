@@ -51,4 +51,8 @@ public class RecordServiceImpl implements RecordService {
     public Record queryoneFullRecord(int record_id) {
         return recordMapper.queryoneFullRecord(record_id);
     }
+
+    public String queryRecordlast(String wechat_id) {
+        return recordMapper.queryRecordlast(wechat_id);
+    }
 }

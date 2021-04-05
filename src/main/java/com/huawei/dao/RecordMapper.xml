@@ -47,5 +47,13 @@
                  left join (select port_id port_id2, description from port) p on port_id = port_id2
     </select>
 
+    <select id="queryRecordlast" resultType="String">
+        select status
+        from kunpeng.record
+        where wechat_id = #{wechat_id}
+        order by timestamp desc
+        LIMIT 1
+    </select>
+
 
 </mapper>

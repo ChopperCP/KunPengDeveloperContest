@@ -33,6 +33,8 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.0" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.8" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.8" />
+          <element id="library" level="project" name="Maven: com.huaweicloud.dws:huaweicloud-dws-jdbc:1.7.1" />
+          <element id="library" level="application" name="font-awesome" />
         </element>
       </element>
     </root>

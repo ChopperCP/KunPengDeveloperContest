@@ -7,5 +7,11 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://124.71.60.210:3306/kunpeng?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="kunpeng@124.71.65.42" uuid="efc2cd6e-2bce-47e3-82b0-82a4541d4b6a">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://124.71.65.42:5066/kunpeng?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC&amp;loadBalanceAutoCommitStatementThreshold=5&amp;loadBalanceHostRemovalGracePeriod=15000&amp;loadBalanceBlacklistTimeout=60000&amp;loadBalancePingTimeout=5000&amp;retriesAllDown=10&amp;connectTimeout=10000</jdbc-url>
+    </data-source>
   </component>
 </project>

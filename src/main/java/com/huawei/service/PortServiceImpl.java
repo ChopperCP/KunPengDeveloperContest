@@ -24,7 +24,16 @@ public class PortServiceImpl implements PortService {
     public int queryPortidByQRstr(String port_QR_str) {
         return portMapper.queryPortidByQRstr(port_QR_str);
     }
-    public String queryPortlast(String wechat_id){
-        return portMapper.queryPortlast(wechat_id);
+
+    public List<Port> quertAllPort() {
+        return portMapper.quertAllPort();
+    }
+
+    public Port queryPortById(int port_id) {
+        return portMapper.queryPortById(port_id);
+    }
+
+    public int deletePort(int port_id) {
+        return portMapper.deletePort(port_id);
     }
 }

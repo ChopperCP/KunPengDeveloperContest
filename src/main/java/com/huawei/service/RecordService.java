@@ -21,4 +21,6 @@ public interface RecordService {
     int addRecord(Record record);
 
     List<Record> queryRecordByuser_QR_str(String user_QR_str);
+
+    String queryRecordlast(String wechat_id);
 }

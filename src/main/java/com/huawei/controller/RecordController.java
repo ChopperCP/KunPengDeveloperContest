@@ -53,24 +53,25 @@ public class RecordController {
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString(recordService.addRecord(record));
     }
+
     @RequestMapping("/queryRecordByuser_QR_str")
     String queryRecordByuser_QR_str(String user_QR_str) throws JsonProcessingException {
         List<Record> records = recordService.queryRecordByuser_QR_str(user_QR_str);
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString(records);
     }
-    @RequestMapping("/addRecordByQR_str")
-    String addRecordByQR_str(String port_QR_str,String wechat_id) throws JsonProcessingException {
-        int port_id = portService.queryPortidByQRstr(port_QR_str);
-        String status = portService.queryPortlast(wechat_id);
-        String new_status="ERROR";
 
-         if(port_QR_str.contains("OUT")){
-            if(status!=null&&status.contains("IN"))new_status="OUT_NORMAL";
+    @RequestMapping("/addRecordByQR_str")
+    String addRecordByQR_str(String port_QR_str, String wechat_id) throws JsonProcessingException {
+        int port_id = portService.queryPortidByQRstr(port_QR_str);
+        String status = recordService.queryRecordlast(wechat_id);
+        String new_status = "ERROR";
+
+        if (port_QR_str.contains("OUT")) {
+            if (status != null && status.contains("IN") && !status.contains("ERROR")) new_status = "OUT_NORMAL";
             else new_status = "OUT_ERROR";
-        }
-        else if(port_QR_str.contains("IN")){
-            if(status==null||status.contains("OUT"))new_status="IN_NORMAL";
+        } else if (port_QR_str.contains("IN")) {
+            if ((status == null || status.contains("OUT")) && !status.contains("ERROR")) new_status = "IN_NORMAL";
             else new_status = "IN_ERROR";
         }
         Record record = new Record();

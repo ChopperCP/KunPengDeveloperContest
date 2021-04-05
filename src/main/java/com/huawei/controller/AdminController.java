@@ -1,15 +1,22 @@
 package com.huawei.controller;
 
+import com.huawei.Utils.PropertiesConfig;
+import com.huawei.bean.Port;
 import com.huawei.bean.Record;
+import com.huawei.service.PortService;
 import com.huawei.service.RecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Properties;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/admin")
@@ -18,8 +25,16 @@ public class AdminController {
     @Qualifier("RecordServiceImpl")
     private RecordService recordService;
 
+    @Autowired
+    @Qualifier("PortServiceImpl")
+    private PortService portService;
+
+
     @RequestMapping("/allRecord")
     public String adminindex(Model model) {
+        String rootPath = AdminController.class.getClassLoader().getResource("/admin.properties").getPath();
+        String password_true = PropertiesConfig.readData(rootPath, "password");
+        if ("Admin@9000".equals(password_true)) return "updatePassword";
         List<Record> records = recordService.queryFullRecord();
         model.addAttribute("allrecord", records);
         return "index";
@@ -41,9 +56,85 @@ public class AdminController {
 
     @RequestMapping("/login")
     public String login(HttpSession session, String username, String password) {
-        if ("root".equals(username) && "123456".equals(password)) {
+        String rootPath = AdminController.class.getClassLoader().getResource("/admin.properties").getPath();
+        String username_true = PropertiesConfig.readData(rootPath, "username");
+        String password_true = PropertiesConfig.readData(rootPath, "password");
+        System.out.println(username_true + "  " + password_true);
+        System.out.println(username + "  " + password);
+
+        if (username_true.equals(username) && password_true.equals(password)) {
             session.setAttribute("username", username);
+            session.setAttribute("password", password);
             return "redirect:/admin/allRecord";
         } else return "redirect:/index.jsp";
     }
+
+    @RequestMapping("/toupdatePassword")
+    public String updatePassword() {
+        return "updatePassword";
+    }
+
+    @RequestMapping("/updatePassword")
+    public String updatePassword(String password, HttpSession session) {
+        if (password == null) return "redirect:/index.jsp";
+        String rootPath = AdminController.class.getClassLoader().getResource("/admin.properties").getPath();
+        PropertiesConfig.writeData(rootPath, "password", password);
+        session.removeAttribute("username");
+        return "redirect:/index.jsp";
+    }
+
+    @RequestMapping("/allPort")
+    public String allPort(Model model) {
+
+        List<Port> ports = portService.quertAllPort();
+        System.out.println(ports);
+        model.addAttribute("list", ports);
+        return "/allPort";
+    }
+
+    @RequestMapping("/toaddPort")
+    public String toaddPort() {
+        return "/addPort";
+    }
+
+    @RequestMapping("/addPort")
+    public String addPort(Port port) {
+        String s = UUID.randomUUID().toString();
+        s = s.substring(0, 8) + s.substring(9, 13) + s.substring(14, 18) + s.substring(19, 23) + s.substring(24);
+        port.setPort_QR_str_in("IN_" + s);
+        s = UUID.randomUUID().toString();
+        s = s.substring(0, 8) + s.substring(9, 13) + s.substring(14, 18) + s.substring(19, 23) + s.substring(24);
+        port.setPort_QR_str_out("OUT_" + s);
+        portService.addPort(port);
+        return "redirect:/admin/allPort";
+    }
+
+    @RequestMapping("/toupdatePort")
+    public String updatePort(int port_id, Model model) {
+        Port port = portService.queryPortById(port_id);
+        model.addAttribute("port", port);
+        return "/updatePort";
+    }
+
+    @RequestMapping("/updatePort")
+    public String updatePort(Port port) {
+        portService.updatePort(port);
+        return "redirect:/admin/allPort";
+    }
+
+    @RequestMapping("/deletePort")
+    public String updatePort(int port_id) {
+        portService.deletePort(port_id);
+        return "redirect:/admin/allPort";
+    }
+
+    @RequestMapping("/randomUUID")
+    @ResponseBody
+    public String randomUUID() {
+        String s = UUID.randomUUID().toString();
+        s = s.substring(0, 8) + s.substring(9, 13) + s.substring(14, 18) + s.substring(19, 23) + s.substring(24);
+        System.out.println(s);
+        return s;
+    }
+
 }
