@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <html>
 <head>
     <title>Title</title>
@@ -31,11 +32,11 @@
         地点纬度：<input type="text" name="latitude" value="${port.latitude}" required><br><br><br>
         地点描述：<input type="text" name="description" value="${port.description}" required><br><br><br>
         地点出口二维码字符:<input id="OUT_" aria-readonly="true" type="text" name="port_QR_str_out" required
-                         value="${port.port_QR_str_out}" readonly>
+                         value="${port.port_QR_str_out}">
         <button type="button" onclick="randomUUID('OUT_')">更换</button>
         <br><br><br>
         地点入口二维码字符<input id="IN_" aria-readonly="true" type="text" name="port_QR_str_in" required
-                        value="${port.port_QR_str_in}" readonly>
+                        value="${port.port_QR_str_in}">
         <button type="button" onclick="randomUUID('IN_')">更换</button>
         <br><br><br>
         <input type="submit" value="修改">

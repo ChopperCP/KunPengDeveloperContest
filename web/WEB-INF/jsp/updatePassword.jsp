@@ -96,7 +96,6 @@
             "${pageContext.request.contextPath}/admin/updatePassword?password=" + form.password1.value,
         );
         return true;
-
     }
 
 </script>
