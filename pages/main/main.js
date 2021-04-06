@@ -28,7 +28,7 @@ Page({
                                 console.log(this.data.wechat_id);
                                 // 查询用户的身份和二维码字符串
                                 wx.request({
-                                    url: 'https://fxlkt.com/user/queryUserBywechatid',
+                                    url: 'https://www.fxlkt.com/huawei/user/queryUserBywechatid',
                                     data: {
                                         // wechat_id: this.data.wechat_id
                                         // DEBUG
@@ -117,7 +117,7 @@ Page({
     show_self_records: function () {
         // 查看自己的出入记录
         wx.request({
-            url: 'https://fxlkt.com/record/queryRecordBywechatid',
+            url: 'https://fxlkt.com/user/record/queryRecordBywechatid',
             data: {
                 wechat_id: this.data.wechat_id,
                 // DEBUG

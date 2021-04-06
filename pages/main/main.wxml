@@ -2,18 +2,27 @@
 <block wx:if="{{qrText != ''}}">
     <view class='button-wrapper'>
         <button bindtap='show_self_records'
-            style="position: relative; top: 752rpx; width: 440rpx; height: 80rpx; display: block; box-sizing: border-box"
+            style="position: relative; top: 700rpx; width: 440rpx; height: 80rpx; display: block; box-sizing: border-box"
             type="primary">查看进出记录</button>
     </view>
 </block>
-<canvas class='canvas' canvas-id='canvas' bindlongtap='save'
-    style="position: relative; left: 1rpx; top: 22rpx"></canvas>
-<block wx:if="{{userIdentity == 'security' || userIdentity == 'admin'}}">
-    <button
-        style="position: relative; left: 1rpx; top: 211rpx; width: 440rpx; height: 80rpx; display: block; box-sizing: border-box"
-        bindtap='qrscan_get_records' type="warn">扫码查看他人出入记录
-    </button>
+
+<canvas class='canvas' canvas-id='canvas' bindlongtap='save' style="position: relative; left: 1rpx; top: 22rpx">
+</canvas>
+
+<block>
+    <view class='button-wrapper'>
+        <button type="primary"
+            style="position: relative; top: 10rpx; width: 440rpx; height: 80rpx; display: block; box-sizing: border-box"
+            bindtap="qrscan_campus">扫码进出园区</button>
+    </view>
 </block>
-<button type="primary"
-    style="position: relative; top: 57rpx; width: 440rpx; height: 80rpx; display: block; box-sizing: border-box"
-    bindtap="qrscan_campus">扫码进出园区</button>
+
+<block wx:if="{{userIdentity == 'security' || userIdentity == 'admin'}}">
+    <view class='button-wrapper'>
+        <button
+            style="position: relative; top: 20rpx; width: 440rpx; height: 80rpx; display: block; box-sizing: border-box"
+            bindtap='qrscan_get_records' type="warn">扫码查看他人出入记录
+        </button>
+    </view>
+</block>
