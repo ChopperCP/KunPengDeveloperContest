@@ -1,5 +1,6 @@
 <!--pages/index/index.wxml-->
 <view style="width:100%; height:100%; display:flex; flex-direction:column;">
+    <image src="../image/background.jpg" style="position:absolute;background-size:100% 100%;height:100%;width:100%"></image>
     <view class="canvas-view">
         <canvas class='canvas' canvas-id='canvas' bindlongtap='save'
             style="position: relative; left: 1rpx; top: 22rpx">

@@ -23,5 +23,6 @@ page{
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+    align-content: center;
     height: 45%;
 }

@@ -1,5 +1,8 @@
 <!--pages/inout_status/fail.wxml-->
 <view class="view">
-  <icon class="icon" type="warn" size="60" style="left: 0rpx;"></icon>
-  <text class="text" style="position: relative; left: 0rpx;">出入异常，请联系管理员处理</text>
+  <image src="../image/background.jpg" style="position:absolute;width:100%;height:100%;over-flow:hidden;z-index:1"></image>
+  <view class="icon" style="width:100%;z-index:2">
+    <image src="../image/false.png" mode="widthFix" style="width:15%"></image>
+  </view>
+  <text class="text" style="position: relative; left: 0rpx; z-index:2">出入异常，请联系管理员处理</text>
 </view>
