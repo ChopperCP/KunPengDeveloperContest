@@ -1,2 +1,4 @@
-<icon class="icon" type="success" size="300" style="position: relative; left: 0rpx; top: 170rpx"></icon>
-<text class="text" style="position: relative; left: 0rpx; top: 170rpx">出入成功</text>
+<view class="view">
+  <icon class="icon" type="success" size="60" style="left: 0rpx;"></icon>
+  <text class="text" style="position: relative; left: 0rpx;">出入成功</text>
+</view>

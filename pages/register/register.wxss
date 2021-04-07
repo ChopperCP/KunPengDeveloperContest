@@ -1,1 +1,10 @@
 /* pages/register/register.wxss */
+
+page{
+  width: 100%;
+  height: 100%;
+}
+
+.page-body{
+  margin-top: 15%;
+}

@@ -1,0 +1,35 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "登陆页面",
+          "pathName": "pages/register/register",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "扫码成功",
+          "pathName": "pages/inout_status/success",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "失败页面",
+          "pathName": "pages/inout_status/fail",
+          "scene": null
+        }
+      ]
+    }
+  }
+}
