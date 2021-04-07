@@ -5,15 +5,8 @@
 
     <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body style="padding-left:40%;padding-top: 15%; background: rgb(68, 68, 68) url(../../image/huawei.jpg) no-repeat fixed center center;background-size: 100% 100%">
 <div class="container">
-    <div class="col-nd-12 column">
-        <div class="page-header">
-            <h1>
-                <small>修改用户权限</small>
-            </h1>
-        </div>
-    </div>
     <form action="${pageContext.request.contextPath}/admin/updateUser" method="post">
         <input type="text" name="wechat_id" required hidden="hidden" value="${user.wechat_id}"><br><br><br>
         权限:<input type="text" name="privilege" value="${user.privilege}" required><br><br><br>

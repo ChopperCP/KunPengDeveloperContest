@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-
+<body>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=drive-width,initial-scale=1.0">
@@ -43,7 +43,8 @@
 </body>
 <style type="text/css">
     html body {
-        background-size: 100%;
+        background: rgb(68, 68, 68) url(../../image/huawei.jpg) no-repeat fixed center center;
+        background-size: 100% 100%;
     }
 
     span {

@@ -4,7 +4,7 @@
     <title>Title</title>
     <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body style="padding-left:40%;padding-top: 15%; background: rgb(68, 68, 68) url(../../image/huawei.jpg) no-repeat fixed center center;background-size: 100% 100%">
 <div class="container">
     <div class="col-nd-12 column">
         <div class="page-header">

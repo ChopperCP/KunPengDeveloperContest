@@ -1,9 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title>所有地点</title>
     <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+
 </head>
 <body>
 <div class="container">
@@ -54,8 +57,11 @@
                     <td>${port.description}</td>
                     <td>${port.longitude}</td>
                     <td>${port.latitude}</td>
-                    <td>${port.port_QR_str_in}</td>
-                    <td>${port.port_QR_str_out}</td>
+                    <td><a href="qrcode_in">查看入口二维码</a></td>
+                    <td><a href="qrcode_out">查看出口二维码</a></td>
+
+<%--                    <td>${port.port_QR_str_in}</td>--%>
+<%--                    <td>${port.port_QR_str_out}</td>--%>
                     <td>
                         <a href="${pageContext.request.contextPath}/admin/toupdatePort?port_id=${port.port_id}">更改</a>
                         &nbsp; | &nbsp;
@@ -133,6 +139,7 @@
         filter: brightness(1.2);
         text-decoration: none;
     }
+
 
 </style>
 </html>

@@ -3,14 +3,9 @@
 <head>
     <title>修改记录</title>
 </head>
-<body>
+<body style="padding-left:40%;padding-top: 10%; background: rgb(68, 68, 68) url(../../image/huawei.jpg) no-repeat fixed center center;background-size: 100% 100%">
 <div class="container">
     <div class="col-nd-12 column">
-        <div class="page-header">
-            <h1>
-                <small>修改记录</small>
-            </h1>
-        </div>
     </div>
     <form action="${pageContext.request.contextPath}/admin/updateRecord" method="post">
         <input hidden="hidden" type="text" name="record_id" value="${record.record_id}"><br><br><br>
