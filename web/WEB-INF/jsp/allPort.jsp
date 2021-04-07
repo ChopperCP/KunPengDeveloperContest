@@ -9,10 +9,23 @@
 <div class="container">
     <div class="col-nd-12 column">
         <div class="page-header">
-            <a href="/admin/allRecord">查看所有记录</a>
-            <h1>
-                <small>所有地点</small>
-            </h1>
+            <ul class="nav nav-tabs">
+                <li role="presentation" >
+                    <a href="/admin/allRecord">所有进出记录</a>
+                </li>
+                <li role="presentation" class="active">
+                    <a>查看所有地点</a>
+                </li>
+                <li role="presentation">
+                    <a href="/admin/allUser ">查看所有用户</a>
+                </li>
+                <div class="logo">
+                    <img src="../../image/logo.png">
+                </div>
+                <li role="presentation" class="Admin">
+                    <a href="/admin/toupdatePassword">修改密码</a><br/>
+                </li>
+            </ul>
         </div>
         <div class="row">
             <div class="col-md-4 column">
@@ -56,4 +69,70 @@
     </div>
 </div>
 </body>
+<style type="text/css">
+    body{
+        width: 99.9%;
+        margin: 0;
+    }
+    .container{
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .page-header{
+        margin-top: 0;
+        margin-left: 0;
+        font-size: 20px;
+        height: 50px;
+        background-color: #282b33;
+    }
+
+    .nav .Admin{
+        display: inline-block;
+        margin-right:20px;
+        float: right;
+    }
+    a{
+        color: #fff;
+    }
+    img{
+        width: 2.8%;
+        float: right;
+    }
+
+    .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+        color: #6c92fa;
+        cursor: default;
+        background-color: #282b33;
+        border: 0;
+        border-bottom-color: transparent;
+    }
+    .col-md-4{
+        width: 100%;
+        padding-left: 40%;
+    }
+    .btn-primary{
+        color: #6c92fa;
+        background-color: #fff;
+        font-size: 20px;
+    }
+    .btn-primary:hover{
+        background-color: #fff;
+        color: #6c92fa;
+        filter: brightness(1.2);
+        text-decoration: none;
+    }
+
+    td a{
+        color: #6c92fa;
+    }
+
+    td a:hover{
+        background-color: #fff;
+        color: #6c92fa;
+        filter: brightness(1.2);
+        text-decoration: none;
+    }
+
+</style>
 </html>
