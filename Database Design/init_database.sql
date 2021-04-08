@@ -29,6 +29,6 @@ CREATE TABLE `record`(
 
 CREATE TABLE `admin`(
 	admin_id INT PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(100),
+    adminname VARCHAR(100),
     password_hash VARCHAR(200)
 )ENGINE=InnoDB;
