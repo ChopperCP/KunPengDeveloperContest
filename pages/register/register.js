@@ -69,30 +69,54 @@ Page({
     onShareAppMessage: function () {
 
     },
-    formSubmit(e) {
+    formSubmit: function (e) {
+        var real_name = e.detail.value.real_name;
+        var phone_number = e.detail.value.phone_number;
 
-        console.log('form发生了submit事件，携带数据为：', e.detail.value);
+        if (real_name == "" || phone_number == "") {
+            wx.showToast({
+                title: '请输入完整信息！',
+                icon: 'none'
+            })
+        }
+        else {
+            if (phone_number.length == "11") {
+                console.log('form发生了submit事件，携带数据为：', e.detail.value);
+                wx.request({
+                    url: 'https://fxlkt.com/huawei/user/addUser',
+                    data: {
+                        wechat_id: this.data.wechat_id,
+                        privilege: 'employee',
+                        user_QR_str: util.getRandomStr(100),
+                        phone_number: e.detail.value.phone_number,
+                        real_name: e.detail.value.real_name,
+                    },
+                    success: (res) => {
+                        console.log(res.data);
+                        wx.showToast({
+                            title: '注册成功',
+                            icon: 'none'
+                        });
+                        setTimeout(function () {
+                            wx.reLaunch({
+                                url: '/pages/main/main',
+                            })
+                        }, 300)
 
-        wx.request({
-            url: 'https://fxlkt.com/user/addUser',
-            data: {
-                wechat_id: this.data.wechat_id,
-                privilege: 'employee',
-                user_QR_str: util.getRandomStr(),
-                phone_number: e.detail.value.phone_number,
-                real_name: e.detail.value.real_name,
-            },
-            success: (res) => {
-                console.log(res.data);
+                    }
+                })
+
+
+            }
+            else {
+
                 wx.showToast({
-                  title: '手机号不正确',
-                  icon: 'none'
+                    title: '手机号不正确',
+                    icon: 'none'
                 })
             }
+            // detail
         }
-
-
-        
     },
 
     formReset(e) {
