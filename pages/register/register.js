@@ -70,6 +70,7 @@ Page({
 
     },
     formSubmit(e) {
+
         console.log('form发生了submit事件，携带数据为：', e.detail.value);
 
         wx.request({
@@ -84,14 +85,14 @@ Page({
             success: (res) => {
                 console.log(res.data);
                 wx.showToast({
-                    title: '注册成功',
-                    icon: 'success'
-                });
-                wx.redirectTo({
-                    url: '/pages/main/main',
-                });
+                  title: '手机号不正确',
+                  icon: 'none'
+                })
             }
-        })
+        }
+
+
+        
     },
 
     formReset(e) {

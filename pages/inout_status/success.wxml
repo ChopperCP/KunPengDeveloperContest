@@ -1,2 +1,7 @@
-<icon class="icon" type="success" size="300" style="position: relative; left: 0rpx; top: 170rpx"></icon>
-<text class="text" style="position: relative; left: 0rpx; top: 170rpx">出入成功</text>
+<view class="view">
+  <image src="../image/background.jpg" style="position:absolute;width:100%;height:100%;z-index:1"></image>
+  <view class="icon" style="width:100%;z-index:2">
+    <image src="../image/true.png" mode="widthFix" style="width:15%"></image>
+  </view>
+  <text class="text" style="position: relative; left: 0rpx; z-index:2">出入成功</text>
+</view>

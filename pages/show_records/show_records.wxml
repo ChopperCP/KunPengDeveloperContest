@@ -1,13 +1,38 @@
-<view class='param-text'>您的出入记录</view>
-<!-- 商品参数 -->
-<view wx:for="{{record}}" class='param'>
-    <!-- 参数标题 -->
-    <!-- 参数列表 -->
-    <view class='param-table'>
-        <view class='tb'>
-            <view class='tL'>{{"id: "+item.record_id}}</view>
-            <view class='tR'>{{"出入口: "+item.description}}</view>
-            <view class='tR'>{{"状态: "+item.status}}</view>
-        </view>
+<wxs src="../../utils/filter.wxs" module="filters"/>
+<view class='box'>
+    <image src="../image/background.jpg" style="position:absolute;width:100%;height:100%;"></image>
+    <view class='param-text' style="z-index:1;font-size:17px;margin-top:5px;margin-bottom:5px;">用户: {{record[0].real_name}} 的记录</view>
+    <!-- 商品参数 -->
+    <view class='main'>
+        <scroll-view class='main-scroll' scroll-y>
+            <view wx:for="{{record}}" class='param' >
+                <!-- 参数标题 -->
+                <!-- 参数列表 -->
+                <view class='param-table'>
+                    
+                    <view class='tb' wx:if="{{item.status=='IN_ERROR'||item.status=='OUT_ERROR'}}" 
+                    style="background-color:#F2DEDE;border:1px solid;border-color:#DDDDDD;margin-bottom:-1px;margin-left:5px;margin-right:5px;">
+                        <view class='tL' style="color:#B24B42;">{{"id: "+item.record_id}}</view>
+                        <view class='tR' style="color:#B24B42;">{{"地点："+item.description}}</view>
+                        <view class='tL' style="color:blue;">联系管理员处理</view>
+                        <view class='tR' style="color:#B24B42;" wx:if="{{item.status=='IN_ERROR'}}">{{"状态：异常——入"}}</view>
+                        <view class='tR' style="color:#B24B42;" wx:if="{{item.status=='OUT_ERROR'}}">{{"状态：异常——出"}}</view>
+                        <view class='tL' ></view>
+                        <view class='tR' style="color:#B24B42;">{{"时间："+filters.formatDate(item.timestamp)}}</view>
+                    </view>
+
+
+                    <view class='tb' wx:else 
+                    style="background-color:#DFF0D8;border:1px solid;border-color:#DDDDDD;margin-bottom:-1px;margin-left:5px;margin-right:5px;">
+                        <view class='tL' style="color:#3C763D">{{"id: "+item.record_id}}</view>
+                        <view class='tR' style="color:#3C763D">{{"地点："+item.description}}</view>
+                        <view class='tL'></view>
+                        <view class='tR' style="color:#3C763D">{{"状态：正常"}}</view>
+                        <view class='tL'></view>
+                        <view class='tR' style="color:#3C763D">{{"时间："+filters.formatDate(item.timestamp)}}</view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
     </view>
 </view>
