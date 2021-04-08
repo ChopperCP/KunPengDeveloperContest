@@ -26,3 +26,9 @@ CREATE TABLE `record`(
     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP , 
     status VARCHAR(10)
 )ENGINE=InnoDB;
+
+CREATE TABLE `admin`(
+	admin_id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(100),
+    password_hash VARCHAR(200),
+)ENGINE=InnoDB;
