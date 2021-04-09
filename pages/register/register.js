@@ -83,7 +83,7 @@ Page({
             if (phone_number.length == "11") {
                 console.log('form发生了submit事件，携带数据为：', e.detail.value);
                 wx.request({
-                    url: 'https://fxlkt.com/huawei/user/addUser',
+                    url: 'https://fxlkt.com/user/addUser',
                     data: {
                         wechat_id: this.data.wechat_id,
                         privilege: 'employee',

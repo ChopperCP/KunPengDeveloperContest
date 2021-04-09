@@ -30,12 +30,7 @@ Page({
                                 wx.request({
                                     url: 'https://fxlkt.com/user/queryUserBywechatid',
                                     data: {
-                                        // wechat_id: this.data.wechat_id
-                                        // DEBUG
-                                        // employee
-                                        // wechat_id: '063Av0Ga1X8XLA0BMhGa1QCvgB2Av0GA'
-                                        // admin
-                                        wechat_id: '2424242a1X8XLA0BMhGa1QCvgB2Av0GA'
+                                        wechat_id: this.data.wechat_id
                                     },
                                     success: (backstage_res) => {
                                         // 取得用户身份
@@ -120,9 +115,6 @@ Page({
             url: 'https://fxlkt.com/record/queryFullRecordBywechatid',
             data: {
                 wechat_id: this.data.wechat_id,
-                //wechat_id: 'o3l265CFpDUqX4wEI99AJSfoeQ8Q',
-                // DEBUG
-                //wechat_id: '123Av0Ga1X8XLA0aahGa1QCvgB2Av0GA',
             },
             success: (res) => {
                 console.log(res.data);
@@ -194,6 +186,7 @@ Page({
                     data: {
                         port_QR_str: res.result,
                         wechat_id: this.data.wechat_id,
+                        // wechat_id: '2424242a1X8XLA0BMhGa1QCvgB2Av0GA',
                         status: "normal",
                     },
                     success: (backstage_res) => {
