@@ -47,3 +47,8 @@ INSERT INTO `record` (wechat_id,port_id,status) values (
     2,
     'OUT_ERROR'
 );
+
+INSERT INTO `admin` (adminname,password_hash) values (
+    'Admin',
+    'dd33dccc2a8d5e387ea313c0cdcbe1de8054628d6e068797a08b9c785e97f441'
+);
