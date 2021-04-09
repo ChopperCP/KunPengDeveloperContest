@@ -3,21 +3,21 @@ INSERT INTO `user` values (
     'employee',
     'ChopperCP QR STR',
     '12345678901',
-    'ChopperCP'
+    '张三'
 ),
 (
     '123Av0Ga1X8XLA0aahGa1QCvgB2Av0GA',
     'security',
     'Zhang 3 QR STR',
     '88888888888',
-    'Zhang 3'
+    '李四'
 ),
 (
     '2424242a1X8XLA0BMhGa1QCvgB2Av0GA',
     'admin',
     'Admin QR STR',
     '00000000000',
-    'Admin'
+    '王五'
 );
 
 INSERT INTO `port` values (
@@ -26,7 +26,7 @@ INSERT INTO `port` values (
     99.3333,
     'IN_cb4b95c8e5864765b6a3998b6ec02fc0',
     'OUT_8c9c651940d647c0a3ae47f94cdce68a',
-    'Gate 1'
+    '暨南大学北门'
 ),
 (
     2,
@@ -34,7 +34,7 @@ INSERT INTO `port` values (
     89.66666,
     'IN_05361edc1065420786c610e66cf3e465',
     'OUT_436651b68b1f4448905e75cc8940c966',
-    'Gate 2'
+    '暨南大学西门'
 );
 
 INSERT INTO `record` (wechat_id,port_id,status) values (
