@@ -4,17 +4,18 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <settings>
-        <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <setting name="logImpl" value="LOG4J"/>
     </settings>
     <typeAliases>
         <typeAlias type="com.huawei.bean.User" alias="User"/>
         <typeAlias type="com.huawei.bean.Record" alias="Record"/>
         <typeAlias type="com.huawei.bean.Port" alias="Port"/>
+        <typeAlias type="com.huawei.bean.Admin" alias="Admin"/>
     </typeAliases>
-
     <mappers>
         <mapper resource="com/huawei/dao/UserMapper.xml"/>
         <mapper resource="com/huawei/dao/PortMapper.xml"/>
         <mapper resource="com/huawei/dao/RecordMapper.xml"/>
+        <mapper resource="com/huawei/dao/AdminMapper.xml"/>
     </mappers>
 </configuration>

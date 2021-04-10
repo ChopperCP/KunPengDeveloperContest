@@ -5,38 +5,9 @@
 <head>
     <title>所有地点</title>
     <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
-
 </head>
 <body>
-<div class="container">
-    <div class="col-nd-12 column">
-        <div class="page-header">
-            <ul class="nav nav-tabs">
-                <li role="presentation" >
-                    <a href="/admin/allRecord">所有进出记录</a>
-                </li>
-                <li role="presentation" class="active">
-                    <a>查看所有地点</a>
-                </li>
-                <li role="presentation">
-                    <a href="/admin/allUser ">查看所有用户</a>
-                </li>
-                <div class="logo">
-                    <img src="../../image/logo.png">
-                </div>
-                <li role="presentation" class="Admin">
-                    <a href="/admin/toupdatePassword">修改密码</a><br/>
-                </li>
-            </ul>
-        </div>
-        <div class="row">
-            <div class="col-md-4 column">
-                <a href="${pageContext.request.contextPath}/admin/toaddPort" class="btn-primary">增加地点</a>
-            </div>
-        </div>
-    </div>
-</div>
+
 <div class="row clearfix">
     <div class="col-md-12 column">
         <table class="table table-hover table-striped">
@@ -57,11 +28,15 @@
                     <td>${port.description}</td>
                     <td>${port.longitude}</td>
                     <td>${port.latitude}</td>
-                    <td><a href="qrcode_in">查看入口二维码</a></td>
-                    <td><a href="qrcode_out">查看出口二维码</a></td>
+                    <td>
+                        <a href="${pageContext.request.contextPath}/admin/qrcode?qrcode=${port.port_QR_str_in}">入口二维码</a>
+                    </td>
+                    <td>
+                        <a href="${pageContext.request.contextPath}/admin/qrcode?qrcode=${port.port_QR_str_out}">出口二维码</a>
+                    </td>
 
-<%--                    <td>${port.port_QR_str_in}</td>--%>
-<%--                    <td>${port.port_QR_str_out}</td>--%>
+                        <%--                    <td>${port.port_QR_str_in}</td>--%>
+                        <%--                    <td>${port.port_QR_str_out}</td>--%>
                     <td>
                         <a href="${pageContext.request.contextPath}/admin/toupdatePort?port_id=${port.port_id}">更改</a>
                         &nbsp; | &nbsp;

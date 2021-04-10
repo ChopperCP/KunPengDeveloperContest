@@ -86,7 +86,7 @@ public class RecordController {
             if (status != null && status.contains("IN") && !status.contains("ERROR")) new_status = "OUT_NORMAL";
             else new_status = "OUT_ERROR";
         } else if (port_QR_str.contains("IN")) {
-            if ((status == null || status.contains("OUT")) && !status.contains("ERROR")) new_status = "IN_NORMAL";
+            if (status == null || (status.contains("OUT") && !status.contains("ERROR"))) new_status = "IN_NORMAL";
             else new_status = "IN_ERROR";
         }
         Record record = new Record();

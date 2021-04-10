@@ -99,12 +99,23 @@
             <version>1.18.10</version>
             <scope>compile</scope>
         </dependency>
-<!--        json-->
+        <!--        json-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.9.8</version>
         </dependency>
+        <dependency>
+            <groupId>org.eclipse.ecf</groupId>
+            <artifactId>org.apache.commons.codec</artifactId>
+            <version>1.9.0.v20170208-1614</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.12</version>
+        </dependency>
     </dependencies>
+
 
 </project>

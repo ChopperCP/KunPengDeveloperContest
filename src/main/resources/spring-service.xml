@@ -17,6 +17,9 @@
     <bean id="RecordServiceImpl" class="com.huawei.service.RecordServiceImpl">
         <property name="recordMapper" ref="recordMapper"/>
     </bean>
+    <bean id="AdminServiceImpl" class="com.huawei.service.AdminServiceImpl">
+        <property name="adminMapper" ref="adminMapper"/>
+    </bean>
     <!-- 配置事务管理器 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <!-- 注入数据库连接池 -->

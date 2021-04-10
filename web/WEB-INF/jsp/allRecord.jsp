@@ -2,37 +2,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>首页</title>
+  <title>所有记录</title>
   <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-<div class="container">
-  <div class="col-nd-12 column">
-    <div class="page-header">
-      <ul class="nav nav-tabs">
-        <li role="presentation" class="active">
-          <a>所有进出记录</a>
-        </li>
-        <li role="presentation">
-          <a href="/admin/allPort">查看所有地点</a>
-        </li>
-        <li role="presentation">
-          <a href="/admin/allUser">查看所有用户</a>
-        </li>
-        <div class="logo">
-            <img src="../../image/logo.png">
-        </div>
-        <li role="presentation" class="Admin">
-          <a href="/admin/toupdatePassword">修改密码</a><br/>
-        </li>
-      </ul>
-    </div>
-    <div class="row">
-      <div class="col-md-4" column>
-      </div>
-    </div>
-  </div>
-</div>
 <div class="row clearfix">
   <div class="col-md-12 column">
     <table class="table table-hover table-striped">

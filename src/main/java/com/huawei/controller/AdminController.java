@@ -1,9 +1,9 @@
 package com.huawei.controller;
 
-import com.huawei.Utils.PropertiesConfig;
 import com.huawei.bean.Port;
 import com.huawei.bean.Record;
 import com.huawei.bean.User;
+import com.huawei.service.AdminService;
 import com.huawei.service.PortService;
 import com.huawei.service.RecordService;
 import com.huawei.service.UserService;
@@ -33,12 +33,29 @@ public class AdminController {
     @Qualifier("UserServiceImpl")
     private UserService userService;
 
+    @Autowired
+    @Qualifier("AdminServiceImpl")
+    private AdminService adminService;
+
+    @RequestMapping("/index")
+    public String index() {
+        return "real_index";
+    }
+
+    @RequestMapping("/qrcode")
+    public String qrcode(Model model, String qrcode) {
+        model.addAttribute("qrcode", qrcode);
+        return "qrcode";
+    }
 
     @RequestMapping("/allRecord")
-    public String adminindex(Model model) {
-        String rootPath = AdminController.class.getClassLoader().getResource("/admin.properties").getPath();
-        String password_true = PropertiesConfig.readData(rootPath, "password");
-        if ("Admin@9000".equals(password_true)) return "updatePassword";
+    public String adminindex(Model model, HttpSession httpSession) {
+//        String rootPath = AdminController.class.getClassLoader().getResource("/admin.properties").getPath();
+//        String password_true = PropertiesConfig.readData(rootPath, "password");
+//        if ("Admin@9000".equals(password_true)) return "updatePassword";
+//        String username = (String) httpSession.getAttribute("username");
+//        String password_hash = org.apache.commons.codec.digest.DigestUtils.sha256Hex("Admin@9000");
+//        String password_db = adminService.findpassword(username);
         List<Record> records = recordService.queryFullRecord();
         model.addAttribute("allrecord", records);
         return "allRecord";
@@ -60,16 +77,22 @@ public class AdminController {
 
     @RequestMapping("/login")
     public String login(HttpSession session, String username, String password) {
-        String rootPath = AdminController.class.getClassLoader().getResource("/admin.properties").getPath();
-        String username_true = PropertiesConfig.readData(rootPath, "username");
-        String password_true = PropertiesConfig.readData(rootPath, "password");
-        System.out.println(username_true + "  " + password_true);
-        System.out.println(username + "  " + password);
-
-        if (username_true.equals(username) && password_true.equals(password)) {
+//        String rootPath = AdminController.class.getClassLoader().getResource("/admin.properties").getPath();
+//        String username_true = PropertiesConfig.readData(rootPath, "username");
+//        String password_true = PropertiesConfig.readData(rootPath, "password");
+//        System.out.println(username_true + "  " + password_true);
+//        System.out.println(username + "  " + password);
+        String password_hash = org.apache.commons.codec.digest.DigestUtils.sha256Hex(password);
+        System.out.println(password_hash);
+        String password_db = adminService.findpassword(username);
+        if (password_db != null && password_db.equals(password_hash)) {
             session.setAttribute("username", username);
-            session.setAttribute("password", password);
-            return "redirect:/admin/allRecord";
+//            session.setAttribute("password", password);
+            password_hash = org.apache.commons.codec.digest.DigestUtils.sha256Hex("Admin@9000");
+            if (password_hash.equals(password_db)) {
+                return "updatePassword";
+            }
+            return "redirect:/admin/index";
         } else return "redirect:/index.jsp";
     }
 
@@ -81,8 +104,12 @@ public class AdminController {
     @RequestMapping("/updatePassword")
     public String updatePassword(String password, HttpSession session) {
         if (password == null) return "redirect:/admin/allRecord";
-        String rootPath = AdminController.class.getClassLoader().getResource("/admin.properties").getPath();
-        PropertiesConfig.writeData(rootPath, "password", password);
+//        String rootPath = AdminController.class.getClassLoader().getResource("/admin.properties").getPath();
+//        PropertiesConfig.writeData(rootPath, "password", password);
+        String username = (String) session.getAttribute("username");
+        String password_hash = org.apache.commons.codec.digest.DigestUtils.sha256Hex(password);
+        System.out.println(">>>>>>>>>" + password_hash + "  " + username);
+        adminService.updatepassword(password_hash, username);
         session.removeAttribute("username");
         return "redirect:/admin/allRecord";
     }
@@ -165,7 +192,7 @@ public class AdminController {
     @RequestMapping("/updateUser")
     public String updateuser(User user) {
         userService.updateUser(user);
-        return "allUser";
+        return "redirect:/admin/allUser";
     }
 
 

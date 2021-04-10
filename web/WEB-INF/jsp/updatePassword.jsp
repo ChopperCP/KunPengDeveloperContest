@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=drive-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="login.css">
+<%--    <link rel="stylesheet" href="login.css">--%>
     <!-- font-awesome 图标字体 http://www.fontawesome.com.cn/faicons/#web-application -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" media="screen"
           rel="stylesheet" type="text/css">
@@ -20,7 +20,15 @@
 </head>
 
 <div class="login-form">
-    <center><span>修改密码</span></center>
+    <center>
+        <div class="col-nd-12 column">
+            <div class="page-header">
+                <h1>
+                    <small>请修改密码</small>
+                </h1>
+            </div>
+        </div>
+    </center>
     <form onsubmit="return checkForm(this);" action="\" method="post">
         <div class="form-group">
             <%--@declare id="usernamel"--%>
@@ -43,7 +51,7 @@
 </body>
 <style type="text/css">
     html body {
-        background: rgb(68, 68, 68) url(../../image/huawei.jpg) no-repeat fixed center center;
+        background: url(../../image/huawei.jpg) no-repeat fixed center center;
         background-size: 100% 100%;
     }
 
